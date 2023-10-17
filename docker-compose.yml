@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  o-du-l2:
+    hostname: o-du-l2-o1
+    container_name: o-du-l2-o1_01
+    build: .
+    command: >
+             sh -c "cd /root/o-du-l2/build/scripts ; ./load_yang.sh ; ./netopeer-server.sh start ; /bin/bash"
+    tty: true
+    stdin_open: true
+    privileged: true
