@@ -4,12 +4,12 @@ RUN apt-get update -y && \
 	apt-get install -y wget \
 	git \
 	vim \
+        net-tools\
 	sudo
 
 RUN ln -fs /usr/share/zoneinfo/$(wget -O - http://ip-api.com/line?fields=timezone) /etc/localtime
 RUN apt-get install -y tzdata
-
-RUN git clone --branch g-release https://github.com/o-ran-sc/o-du-l2 /root/o-du-l2
+RUN git clone --branch f-release https://github.com/o-ran-sc/o-du-l2 /root/o-du-l2
 
 WORKDIR /root/o-du-l2/build/scripts/
 RUN bash ./install_odu_dependency.sh
